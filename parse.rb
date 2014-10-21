@@ -5,7 +5,14 @@ require 'vars'
 vars = { }
 
 def var parse(input)
-input[/#{"""}(.*?)#{"""}/m, 1]
+  spl = input.split(" ")
+  for word in 0..spl.length
+    if spl[word].include? "'" || spl[word].include? '"'
+      begin
+        spl.delete_at(word)
+      end until spl[word].include? "'"
+
+
 
 
 #TODO parses for blocks aka if else while def and end
